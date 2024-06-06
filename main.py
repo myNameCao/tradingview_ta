@@ -22,8 +22,8 @@ def get_data(symbol,interval='1d'):
     # interval=Interval.INTERVAL_1_DAY
     interval=interval
   )
-  print(tesla.get_analysis().summary)
-  return  tesla.get_analysis().summary
+  analysis= tesla.get_analysis()
+  return  {'summary':analysis.summary,'oscillators':analysis.oscillators,'moving_averages':analysis.moving_averages}
 
 
 
