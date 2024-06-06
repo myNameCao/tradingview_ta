@@ -6,6 +6,10 @@ conda activate tradingview_ta
 
 
 
+netstat -tunlp
+
+
+
  ### Python 依赖:
 
  ```

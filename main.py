@@ -3,6 +3,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 @app.route('/api/query', methods=['GET'])
+
 def query_data():
     try:
        symbol = request.args.get("symbol")
@@ -27,5 +28,5 @@ def get_data(symbol,interval='1d'):
 
 
 if __name__ == '__main__':
-    app.run(port=8686)
+    app.run(host='0.0.0.0', port=8686,debug=True)
     # get_data("BNBUSDT",'1h')
