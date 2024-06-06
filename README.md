@@ -9,6 +9,7 @@ conda activate tradingview_ta
 netstat -tunlp
 
 
+nohup python main.py
 
  ### Python 依赖:
 
