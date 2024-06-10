@@ -2,6 +2,10 @@
 
 conda create --name tradingview_ta python=3.10
 
+
+
+
+
 conda activate tradingview_ta
 
 

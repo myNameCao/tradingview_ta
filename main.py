@@ -1,19 +1,27 @@
 from tradingview_ta import TA_Handler, Interval, Exchange
 from flask import Flask, request
 
+import time
+
 app = Flask(__name__)
 @app.route('/api/query', methods=['GET'])
 
 def query_data():
+    
+    start= time.time()
     try:
        symbol = request.args.get("symbol")
        interval = request.args.get("interval")
-       return {"data": get_data(symbol,interval=interval), "success": True}  
+       print(time.time()-start,111)
+            
+       data=  {"data": get_data(symbol,interval=interval), "success": True}  
+       print(time.time()-start,111)
+       return data
     except Exception as e:
         return {"data": {}, "success": False}
   
    
-def get_data(symbol,interval='1d'):
+def get_data(symbol,interval='5m'):
   print(symbol,interval)
   tesla = TA_Handler(
     symbol=symbol,
