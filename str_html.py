@@ -56,15 +56,15 @@ filtered_divs = [ div for div in divs if any(div.find(string=lambda text: text a
 
 
 
-list= []
+list_icon= []
 
 for div in filtered_divs:
     for child in div.find_all(name='div', attrs={'class': 'css-lzd0h4'}):
-        list.append(child.string)
+        list_icon.append(child.string)
        
 
 
-print(list)  # 打印子
+print(list(set(list_icon)) ) # 打印子
 
 
 
