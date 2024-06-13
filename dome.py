@@ -2,29 +2,53 @@ import requests
 
 from bs4 import BeautifulSoup
 
-
 from selenium import webdriver
 
+from selenium.webdriver.support.ui import WebDriverWait
 
-driver = webdriver.Chrome()
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
-driver.get("http://selenium.dev")
 
-driver.quit()
+import time
+
 
 
 
 L=[]
 def geta_html(page):
 
-    html=requests.get('https://www.binance.com/zh-CN/markets/overview?p={}'.format(page))
+    # html=requests.get('https://x.com/xiaomucrypto'.format(page))
+
+
+    
+
+
+    driver = webdriver.Chrome()
+
+    driver.add_cookie({'name' : 'auth_token', 'value' : '37213cc5778652f45343c86880f5f9dcb05965e6'})
+
+  
+
+    driver.get("https://x.com/xiaomucrypto")
+
+
+
+    # wait = WebDriverWait(driver, 10)
+
+    # wait.until(EC.presence_of_element_located((By.ID, "id__o6a061w0s9a")))
+
+    time.sleep(10)
+
 
 
     # 打印处理后的HTML
 
-    soup = BeautifulSoup(html.text, 'html.parser')
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-    # 移除所有<script>标签及其内容
+    driver.close()
+
+    # # 移除所有<script>标签及其内容
     for script_tag in soup.find_all(name=['script','style']):
         script_tag.extract()
 
